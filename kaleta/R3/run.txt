@@ -1,0 +1,577 @@
+Building configuration...
+
+Current configuration : 1491 bytes
+!
+! Last configuration change at 15:06:41 UTC Mon Apr 28 2025
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname R3
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 4 06YFDUHH61wAE/kLkDq9BGho1QM5EnRtoyr8cHAUg.2
+!
+no aaa new-model
+!
+ip cef
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FCZ1751613L
+!
+!
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial0/0/1
+ no ip address
+ shutdown
+!
+router rip
+ version 2
+ network 10.0.0.0
+ network 192.168.30.0
+ network 192.168.40.0
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+control-plane
+!
+!
+banner motd ^C
+
+
+Unauthorized acces is strictly prohibited^C
+!
+line con 0
+ password 7 045802150C2E
+ logging synchronous
+ login
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ password 7 13061E010803
+ login
+ transport input all
+!
+scheduler allocate 20000 1000
+!
+end
+
+R3#
+R3#
+R3#
+R3#
+R3#conf
+R3#configure t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R3(config)#no
+R3(config)#no i
+R3(config)#no i[
+R3(config)#no ip
+R3(config)#no ip do
+R3(config)#no ip domain loo
+R3(config)#no ip domain lookup
+R3#
+*Apr 28 15:11:33.903: %SYS-5-CONFIG_I: Configured from console by console
+R3#ping 192.168.30.11
+% Unrecognized host or address, or protocol not running.
+
+R3#show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+Embedded-Service-Engine0/0 unassigned      YES unset  administratively down down
+GigabitEthernet0/0         unassigned      YES unset  administratively down down
+GigabitEthernet0/1         unassigned      YES unset  administratively down down
+GigabitEthernet0/2         unassigned      YES unset  administratively down down
+Serial0/0/0                unassigned      YES unset  administratively down down
+Serial0/0/1                unassigned      YES unset  administratively down down
+R3#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R3(config)#in
+R3(config)#interface g0/1
+R3(config-if)#ip ad
+R3(config-if)#ip add
+R3(config-if)#ip address 192.168.30.1 255.255.255.0
+R3(config-if)#no sh
+R3(config-if)#
+*Apr 28 15:14:40.107: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to up
+*Apr 28 15:14:41.107: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
+R3(config-if)#int S0/0/1
+R3(config-if)#ip con
+R3(config-if)#ip conf
+R3(config-if)#ip add
+R3(config-if)#ip address 10.2.2.1 255.255.255.252
+R3(config-if)#no sh
+R3(config-if)#
+*Apr 28 15:15:38.515: %LINK-3-UPDOWN: Interface Serial0/0/1, changed state to up
+*Apr 28 15:15:39.515: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/1, changed state to up
+R3(config-if)#int loopback
+% Incomplete command.
+
+R3(config)#int loopback
+R3(config)#inter
+R3(config)#interface l
+R3(config)#interface lo
+R3(config)#interface lop
+R3(config)#interface loo
+R3(config)#interface loopback
+R3(config)#interface loopback
+R3(config)#interface loopback
+% Incomplete command.
+
+R3(config)#interface loopback ?
+  <0-2147483647>  Loopback interface number
+
+R3(config)#int loopback 0
+R3(config-if)#ip add
+*Apr 28 15:16:08.555: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback0, changed state to up
+R3(config-if)#ip add
+R3(config-if)#ip address 192.168.40.1 255.255.255.0
+R3(config-if)#def
+R3(config-if)#default ga
+R3(config-if)#default g
+R3(config-if)#default g
+R3(config-if)#default ?
+  aaa                 Authentication, Authorization and Accounting.
+  access-expression   Build a bridge boolean access expression
+  arp                 Set arp type (arpa, probe, snap), timeout, log options or
+                      packet priority
+  authentication      Auth Manager Interface Configuration Commands
+  backup              Modify backup parameters
+  bandwidth           Set bandwidth informational parameter
+  bgp-policy          Apply policy propagated by bgp community string
+  bridge-group        Transparent bridging interface parameters
+  carrier-delay       Specify delay for interface transitions
+  cdp                 CDP interface subcommands
+  clns                CLNS interface subcommands
+  content-scan        Content Scan the ingress traffic
+  crypto              Encryption/Decryption commands
+  cwmp                Configure CPE WAN Management Protocol(CWMP) on this
+                      interface
+  dampening           Enable event dampening
+  delay               Specify interface throughput delay
+  description         Interface specific description
+  dot1q               dot1q interface configuration commands
+  dot1x               Interface Config Commands for IEEE 802.1X
+  eou                 EAPoUDP Interface Configuration Commands
+  flow-sampler        Attach flow sampler to the interface
+  history             Interface history histograms - 60 second, 60 minute and
+                      72 hour
+  hold-queue          Set hold queue depth
+  ip                  Interface Internet Protocol config commands
+  iphc-profile        Configure IPHC profile
+
+R3(config-if)#default ga
+R3(config-if)#default ga?
+% Unrecognized command
+R3(config-if)#default gathe
+R3(config-if)#ip daf
+R3(config-if)#ip dafu
+R3(config-if)#ip dafaul
+R3(config-if)#ip default
+R3(config-if)#ip default-g
+R3(config-if)#ip default
+R3#
+*Apr 28 15:17:16.251: %SYS-5-CONFIG_I: Configured from console by console
+R3#configure t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R3(config)#int loopback 0
+R3(config-if)#ip address 192.168.40.1 255.255.255.0
+R3(config-if)#no sh
+R3(config-if)#exit
+R3(config)#exit
+R3#
+*Apr 28 15:17:46.043: %SYS-5-CONFIG_I: Configured from console by console
+R3#cop
+R3#cop
+R3#copy ru st
+Destination filename [startup-config]?
+Building configuration...
+[OK]
+R3#ping 192.168.30.11
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.30.11, timeout is 2 seconds:
+..!!!
+Success rate is 60 percent (3/5), round-trip min/avg/max = 1/2/4 ms
+R3#ping 192.168.30.11
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.30.11, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/7/28 ms
+R3#ping 10.1.1.0
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.0, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+R3#ping 10.1.1.0
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.0, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+R3#ping 10.2.2.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.2.2.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 28/28/28 ms
+R3#ping 10.1.1.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.1, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+R3#ping 10.2.2.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.2.2.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 28/28/28 ms
+R3#ping 10.1.1.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.1, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+R3#ping 10.1.1.2
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.2, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+R3#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R3(config)#int s0/0/1
+R3(config-if)#clo
+R3(config-if)#clock r
+R3(config-if)#clock rate ?
+        Speed (bits per second)
+  1200
+  2400
+  4800
+  9600
+  14400
+  19200
+  28800
+  32000
+  38400
+  48000
+  56000
+  57600
+  64000
+  72000
+  115200
+  125000
+  128000
+  148000
+  192000
+  250000
+  256000
+  384000
+  500000
+  512000
+  768000
+  800000
+  1000000
+  2000000
+  4000000
+  5300000
+  8000000
+
+  <300-8000000>    Choose clockrate from list above
+
+R3(config-if)#clock rate
+R3#
+*Apr 28 15:31:47.087: %SYS-5-CONFIG_I: Configured from console by console
+R3#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R3(config)#router ospf 1
+R3(config-router)#net
+R3(config-router)#network 192.168.30.0 0.0.0.255 are
+R3(config-router)#network 192.168.30.0 0.0.0.255 area 0
+R3(config-router)#network 192.168.40.0 0.0.0.255 area 0
+R3(config-router)#network 10.2.2.0 0.0.0.3 area 0
+R3(config-router)#no sh
+R3(config-router)#no shutdown
+R3(config-router)#exi
+R3(config-router)#exit
+R3(config)#
+R3#ping 10.1.1.2
+*Apr 28 15:36:56.471: %SYS-5-CONFIG_I: Configured from console by console
+R3#ping 10.1.1.2
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.2, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+R3#ping 10.1.1.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.1, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+R3#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R3(config)#
+*Apr 28 15:39:22.103: %OSPF-5-ADJCHG: Process 1, Nbr 209.165.200.225 on Serial0/0/1 from LOADING to FULL, Loading Done
+R3(config)#acc
+R3(config)#access-list 1 remark all
+R3(config)#access-list 1 remark allow r
+R3(config)#access-list 1 remark allow R1 LANs Access
+R3(config)#acc
+R3(config)#access-list 1 per
+R3(config)#access-list 1 permit 192.168.10.0 0.0.0.255
+R3(config)#acc
+R3(config)#access-list 1 per
+R3(config)#access-list 1 permit 192.168.20.0 0.0.0.255
+R3(config)#acc
+R3(config)#access-list 1 de
+R3(config)#access-list 1 deny ab
+R3(config)#access-list 1 deny an
+R3(config)#access-list 1 deny any
+R3(config)#int g0/1
+R3(config-if)#ip acc
+R3(config-if)#ip access
+R3(config-if)#ip access-group 1 out
+R3(config-if)#exit
+R3(config)#exit
+R3#sho
+R3#show
+*Apr 28 15:43:12.539: %SYS-5-CONFIG_I: Configured from console by consolea
+R3#show acc
+R3#show access-l
+R3#show access-lists 1
+Standard IP access list 1
+    10 permit 192.168.10.0, wildcard bits 0.0.0.255
+    20 permit 192.168.20.0, wildcard bits 0.0.0.255
+    30 deny   any
+R3#ping 192.168.10.11
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.10.11, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 28/35/60 ms
+R3#ping 192.168.10.11
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.10.11, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 28/32/52 ms
+R3#show ip in
+R3#show ip i
+R3#show ip
+R3#show ip int
+R3#show ip interface br
+R3#show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+Embedded-Service-Engine0/0 unassigned      YES unset  administratively down down
+GigabitEthernet0/0         unassigned      YES unset  administratively down down
+GigabitEthernet0/1         192.168.30.1    YES manual up                    up
+GigabitEthernet0/2         unassigned      YES unset  administratively down down
+Serial0/0/0                unassigned      YES unset  administratively down down
+Serial0/0/1                10.2.2.1        YES manual up                    up
+Loopback0                  192.168.40.1    YES manual up                    up
+R3#show access-lists 1
+Standard IP access list 1
+    10 permit 192.168.10.0, wildcard bits 0.0.0.255 (10 matches)
+    20 permit 192.168.20.0, wildcard bits 0.0.0.255
+    30 deny   any (22 matches)
+R3#show r
+R3#show ru
+R3#show run
+Building configuration...
+
+Current configuration : 1883 bytes
+!
+! Last configuration change at 15:43:12 UTC Mon Apr 28 2025
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname R3
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 4 06YFDUHH61wAE/kLkDq9BGho1QM5EnRtoyr8cHAUg.2
+!
+no aaa new-model
+!
+ip cef
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FCZ1751613L
+!
+!
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 192.168.40.1 255.255.255.0
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ ip address 192.168.30.1 255.255.255.0
+ ip access-group 1 out
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial0/0/1
+ ip address 10.2.2.1 255.255.255.252
+!
+router ospf 1
+ network 10.2.2.0 0.0.0.3 area 0
+ network 192.168.30.0 0.0.0.255 area 0
+ network 192.168.40.0 0.0.0.255 area 0
+!
+router rip
+ version 2
+ network 10.0.0.0
+ network 192.168.30.0
+ network 192.168.40.0
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+access-list 1 remark allow R1 LANs Access
+access-list 1 permit 192.168.10.0 0.0.0.255
+access-list 1 permit 192.168.20.0 0.0.0.255
+access-list 1 deny   any
+!
+!
+!
+control-plane
+!
+!
+banner motd ^C
+
+
+Unauthorized acces is strictly prohibited^C
+!
+line con 0
+ password 7 045802150C2E
+ logging synchronous
+ login
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ password 7 13061E010803
+ login
+ transport input all
+!
+scheduler allocate 20000 1000
+!
+end

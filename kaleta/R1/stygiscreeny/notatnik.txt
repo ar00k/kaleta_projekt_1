@@ -1,0 +1,658 @@
+R1#show run
+Building configuration...
+
+Current configuration : 1778 bytes
+!
+! Last configuration change at 15:36:23 UTC Mon Apr 28 2025
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname R1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 4 06YFDUHH61wAE/kLkDq9BGho1QM5EnRtoyr8cHAUg.2
+!
+no aaa new-model
+!
+ip cef
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FCZ1753608N
+!
+!
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 192.168.20.1 255.255.255.0
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ ip address 192.168.10.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ ip address 10.1.1.1 255.255.255.252
+ clock rate 128000
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 128000
+!
+router ospf 1
+ network 10.1.1.0 0.0.0.3 area 0
+ network 192.168.10.0 0.0.0.255 area 0
+ network 192.168.20.0 0.0.0.255 area 0
+!
+router rip
+ version 2
+ network 10.0.0.0
+ network 192.168.10.0
+ network 192.168.20.0
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+ip access-list standard BRANCH-OFFICE-POLICY
+ permit 192.168.30.3
+ permit 192.168.40.0 0.0.0.255
+!
+!
+!
+!
+control-plane
+!
+!
+banner motd ^CWelcome
+banner motd ^C
+!
+line con 0
+ password 7 01100F175804
+ logging synchronous
+ login
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ password 7 121A0C041104
+ login
+ transport input all
+!
+scheduler allocate 20000 1000
+!
+end
+
+R1#      R1#show run
+          ^
+% Invalid input detected at '^' marker.
+
+R1#Building configuration...
+    ^
+% Invalid input detected at '^' marker.
+
+R1#
+R1#Current configuration : 1778 bytes
+    ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#! Last configuration change at 15:36:23 UTC Mon Apr 28 2025
+R1#version 15.2
+      ^
+% Invalid input detected at '^' marker.
+
+R1#service timestamps debug datetime msec
+           ^
+% Invalid input detected at '^' marker.
+
+R1#service timestamps log datetime msec
+           ^
+% Invalid input detected at '^' marker.
+
+R1#service password-encryption
+           ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#hostname R1
+    ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#boot-start-marker
+Translating "boot-start-marker"
+
+% Bad IP address or host name
+Translating "boot-start-marker"
+
+% Unknown command or computer name, or unable to find computer address
+R1#boot-end-marker
+Translating "boot-end-marker"
+
+% Bad IP address or host name
+Translating "boot-end-marker"
+
+% Unknown command or computer name, or unable to find computer address
+R1#!
+R1#!
+R1#enable secret 4 06YFDUHH61wAE/kLkDq9BGho1QM5EnRtoyr8cHAUg.2
+          ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#no aaa new-model
+      ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#ip cef
+      ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#!
+R1#!
+R1#!
+R1#!
+R1#!
+R1#no ip domain lookup
+      ^
+% Invalid input detected at '^' marker.
+
+R1#no ipv6 cef
+      ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#multilink bundle-name authenticated
+    ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#!
+R1#!
+R1#!
+R1#license udi pid CISCO2911/K9 sn FCZ1753608N
+           ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#!
+R1#!
+R1#redundancy
+% Incomplete command.
+
+R1#!
+R1#!
+R1#!
+R1#!
+R1#!
+R1#!
+R1#!
+R1#!
+R1#!
+R1#!
+R1#!
+R1#!
+R1#!
+R1#!
+R1#interface Loopback0
+    ^
+% Invalid input detected at '^' marker.
+
+R1# ip address 192.168.20.1 255.255.255.0
+       ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#interface Embedded-Service-Engine0/0
+    ^
+% Invalid input detected at '^' marker.
+
+R1# no ip address
+       ^
+% Invalid input detected at '^' marker.
+
+R1# shutdown
+Translating "shutdown"
+
+% Bad IP address or host name
+Translating "shutdown"
+
+% Unknown command or computer name, or unable to find computer address
+R1#!
+R1#interface GigabitEthernet0/0
+    ^
+% Invalid input detected at '^' marker.
+
+R1# no ip address
+       ^
+% Invalid input detected at '^' marker.
+
+R1# duplex auto
+     ^
+% Invalid input detected at '^' marker.
+
+R1# speed auto
+       ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#interface GigabitEthernet0/1
+    ^
+% Invalid input detected at '^' marker.
+
+R1# ip address 192.168.10.1 255.255.255.0
+       ^
+% Invalid input detected at '^' marker.
+
+R1# duplex auto
+     ^
+% Invalid input detected at '^' marker.
+
+R1# speed auto
+       ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#interface GigabitEthernet0/2
+    ^
+% Invalid input detected at '^' marker.
+
+R1# no ip address
+       ^
+% Invalid input detected at '^' marker.
+
+R1# shutdown
+% Bad IP address or host name
+% Unknown command or computer name, or unable to find computer address
+R1# duplex auto
+     ^
+% Invalid input detected at '^' marker.
+
+R1# speed auto
+       ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#interface Serial0/0/0
+    ^
+% Invalid input detected at '^' marker.
+
+R1# ip address 10.1.1.1 255.255.255.252
+       ^
+% Invalid input detected at '^' marker.
+
+R1# clock rate 128000
+           ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#interface Serial0/0/1
+    ^
+% Invalid input detected at '^' marker.
+
+R1# no ip address
+       ^
+% Invalid input detected at '^' marker.
+
+R1# clock rate 128000
+           ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#router ospf 1
+    ^
+% Invalid input detected at '^' marker.
+
+R1# network 10.1.1.0 0.0.0.3 area 0
+     ^
+% Invalid input detected at '^' marker.
+
+R1# network 192.168.10.0 0.0.0.255 area 0
+     ^
+% Invalid input detected at '^' marker.
+
+R1# network 192.168.20.0 0.0.0.255 area 0
+     ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#router rip
+    ^
+% Invalid input detected at '^' marker.
+
+R1# version 2
+Translating "version"
+
+% Bad IP address or host name
+Translating "version"
+
+% Unknown command or computer name, or unable to find computer address
+R1# network 10.0.0.0
+     ^
+% Invalid input detected at '^' marker.
+
+R1# network 192.168.10.0
+     ^
+% Invalid input detected at '^' marker.
+
+R1# network 192.168.20.0
+     ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#ip forward-protocol nd
+      ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#no ip http server
+      ^
+% Invalid input detected at '^' marker.
+
+R1#no ip http secure-server
+      ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#!
+R1#ip access-list standard BRANCH-OFFICE-POLICY
+      ^
+% Invalid input detected at '^' marker.
+
+R1# permit 192.168.30.3
+     ^
+% Invalid input detected at '^' marker.
+
+R1# permit 192.168.40.0 0.0.0.255
+     ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#!
+R1#!
+R1#!
+R1#control-plane
+Translating "control-plane"
+
+% Bad IP address or host name
+Translating "control-plane"
+
+% Unknown command or computer name, or unable to find computer address
+R1#!
+R1#!
+R1#banner motd ^CWelcome
+    ^
+% Invalid input detected at '^' marker.
+
+R1#banner motd ^C
+    ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#line con 0
+     ^
+% Invalid input detected at '^' marker.
+
+R1# password 7 01100F175804
+      ^
+% Invalid input detected at '^' marker.
+
+R1# logging synchronous
+            ^
+% Invalid input detected at '^' marker.
+
+R1# login
+% No login server running.
+R1#line aux 0
+     ^
+% Invalid input detected at '^' marker.
+
+R1#line 2
+Translating "line"
+
+% Bad IP address or host name
+Translating "line"
+
+% Unknown command or computer name, or unable to find computer address
+R1# no activation-character
+       ^
+% Invalid input detected at '^' marker.
+
+R1# no exec
+       ^
+% Invalid input detected at '^' marker.
+
+R1# transport preferred none
+       ^
+% Invalid input detected at '^' marker.
+
+R1# transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+       ^
+% Invalid input detected at '^' marker.
+
+R1# stopbits 1
+Translating "stopbits"
+
+% Bad IP address or host name
+Translating "stopbits"
+
+% Unknown command or computer name, or unable to find computer address
+R1#line vty 0 4
+     ^
+% Invalid input detected at '^' marker.
+
+R1# password 7 121A0C041104
+      ^
+% Invalid input detected at '^' marker.
+
+R1# login
+% No login server running.
+R1# transport input all
+       ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#scheduler allocate 20000 1000
+    ^
+% Invalid input detected at '^' marker.
+
+R1#!
+R1#end
+Translating "end"
+
+% Bad IP address or host name
+Translating "end"
+
+% Unknown command or computer name, or unable to find computer address
+R1#
+R1#show run
+Building configuration...
+
+Current configuration : 1778 bytes
+!
+! Last configuration change at 15:36:23 UTC Mon Apr 28 2025
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname R1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 4 06YFDUHH61wAE/kLkDq9BGho1QM5EnRtoyr8cHAUg.2
+!
+no aaa new-model
+!
+ip cef
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FCZ1753608N
+!
+!
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 192.168.20.1 255.255.255.0
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ ip address 192.168.10.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ ip address 10.1.1.1 255.255.255.252
+ clock rate 128000
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 128000
+!
+router ospf 1
+ network 10.1.1.0 0.0.0.3 area 0
+ network 192.168.10.0 0.0.0.255 area 0
+ network 192.168.20.0 0.0.0.255 area 0
+!
+router rip
+ version 2
+ network 10.0.0.0
+ network 192.168.10.0
+ network 192.168.20.0
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+ip access-list standard BRANCH-OFFICE-POLICY
+ permit 192.168.30.3
+ permit 192.168.40.0 0.0.0.255
+!
+!
+!
+!
+control-plane
+!
+!
+banner motd ^CWelcome
+banner motd ^C
+!
+line con 0
+ password 7 01100F175804
+ logging synchronous
+ login
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ password 7 121A0C041104
+ login
+ transport input all
+!
+scheduler allocate 20000 1000
+!
+end
+
+R1#
